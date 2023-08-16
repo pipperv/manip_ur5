@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <include file="$(find rrbot_control)/launch/gripper_control.launch"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/gripper/joint_states" />
+  </node>
+
+</launch>

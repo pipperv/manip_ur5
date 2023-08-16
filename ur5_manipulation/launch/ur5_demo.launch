@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="pi" value="3.1415926535978"/>
+
+  <arg name="roll" default="$(eval -arg('pi'))"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="$(eval -arg('pi')/2.)"/>
+
+  <param name="ur5_demo/roll" value="$(arg roll)"/>
+  <param name="ur5_demo/pitch" value="$(arg pitch)"/>
+  <param name="ur5_demo/yaw" value="$(arg yaw)"/>
+  <node name="ur5_demo" pkg="ur5_manipulation" type="ur5_demo" respawn="false" output="screen">
+  </node>
+
+</launch>
